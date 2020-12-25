@@ -38,3 +38,21 @@ Feature: Customer Onboard Service
     And I verify "fullName" "QC HDBANK" is displayed in response
     And I verify "email" "qcteam@hdbank.com.vn" is displayed in response
     And I logout with "minhson"
+
+  @CustomerOnboard-03
+  Scenario Outline: I verify debit & credit card can not inquire
+    Given I login with "minhson" and "Son112233!"
+    When I access into "CustomerOnboardService" on portal at 1 page
+    And I choose version "1.0.0"
+    Then I access into "createImoneyRegistration" api
+    And I click on "Try it" tab
+    And I input "f6ac5b8aa8e6d566f7e634d0fda4a356" Client Secret
+    And I inquire with "<cardNum>" cardNumber from "inquireImoneyInfo" file
+    Then I click "Send" button
+    And I verify "resultMessage" "<msg>" is displayed in response
+    And I logout with "minhson"
+    Examples:
+      | cardNum      | msg                   |
+      | 229618818160 | Card number not exist |
+      | 318443496960 | Card number not exist |
+      | 81245826100  | Card number not exist |

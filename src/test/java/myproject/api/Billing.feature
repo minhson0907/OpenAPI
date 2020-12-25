@@ -15,15 +15,15 @@ Feature: Billing Service
     And I verify "resultMessage" "Success" is displayed in response
     And I logout with "minhson"
     Examples:
-      | serviceCode | providerId    | serviceType | customerCode     | userName  | accountNumber   | merchantId | amount | phone      | topupPlanCode |
+      | serviceCode | providerId    | serviceType | customerCode     | userName   | accountNumber   | merchantId | amount | phone      | topupPlanCode |
       | billing     | EVN           | ELECTRIC    | PA25SL0061320    | chungnq86  | 068704070012891 | EVNNPC     | 1000   | 0983234166 |               |
-#      | billing     | 190008@000002 | INTERNET    | ADSL_HCM         | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
-#      | billing     | 200000@000002 | CAP         | 1616221          | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
-#      | billing     | 109800@000003 | PHONE       | 0462511253       | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
-#      | billing     | 109800@000001 | PHONE       | 0982816517       | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
-#      | billing     | 199032@000010 | WATER       | 9022060          | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
-#      | billing     | 109800@000006 | LOAN        | 20180723-9956732 | chungnq86 | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
-#      | topup       | VNTOPUP-VNPAY | VNTOPUP     | 9022060      | tranducnam | 186704070000673 | VNPAY      | 100000 | 0965765473 | TPVNPAY100    |
+      | billing     | 190008@000002 | INTERNET    | ADSL_HCM         | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
+      | billing     | 200000@000002 | CAP         | 1616221          | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
+      | billing     | 109800@000003 | PHONE       | 0462511253       | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
+      | billing     | 109800@000001 | PHONE       | 0982816517       | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
+      | billing     | 199032@000010 | WATER       | 9022060          | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
+      | billing     | 109800@000006 | LOAN        | 20180723-9956732 | chungnq86  | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
+      | topup       | VNTOPUP-VNPAY | VNTOPUP     | 9022060          | tranducnam | 186704070000673 | VNPAY      | 100000 | 0965765473 | TPVNPAY100    |
 
   @Billing-02
   Scenario Outline: Payment Bill - Pay One
@@ -89,8 +89,8 @@ Feature: Billing Service
     And I verify "resultMessage" "Success" is displayed in response
     And I logout with "minhson"
     Examples:
-      | serviceCode | providerId    | serviceType | customerCode  | userName  | accountNumber   | merchantId | amount | phone      | topupPlanCode |
-      | billing     | EVN           | ELECTRIC    | PA25SL0056456 | chungnq86 | 068704070012891 | EVNNPC     | 1000   | 0983234166 |               |
+      | serviceCode | providerId | serviceType | customerCode  | userName  | accountNumber   | merchantId | amount | phone      | topupPlanCode |
+      | billing     | EVN        | ELECTRIC    | PA25SL0056456 | chungnq86 | 068704070012891 | EVNNPC     | 1000   | 0983234166 |               |
 #      | billing     | 200000@000002 | CAP         | 1616226       | chungnq86 | 068704070012891 | VNPAY      | 1000   | 0983234166 |               |
 
   @Billing-04

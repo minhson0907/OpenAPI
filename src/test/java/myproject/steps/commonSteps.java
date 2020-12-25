@@ -14,15 +14,13 @@ public class commonSteps extends TestBase {
 
     @Given("^I login with \"([^\"]*)\" and \"([^\"]*)\"$")
     public void iLoginWithUsernameAndPassword(String userName, String passWord) throws Exception {
-//        driver.get(prop.getProperty("url.api"));
-        driver.navigate().to(prop.getProperty("url.api"));
+        driver.get(prop.getProperty("url.api"));
+        waitElement(By.xpath("//a[@title='Sign in to your account']"));
+        driver.findElement(By.xpath("//a[@title='Sign in to your account']")).click();
         waitElement(By.id("edit-name"));
-        driver.findElement(By.id("edit-name")).clear();
-        driver.findElement(By.id("edit-name")).sendKeys(userName);
-        driver.findElement(By.id("edit-pass")).clear();
-        driver.findElement(By.id("edit-pass")).sendKeys(passWord);
+        driver.findElement(By.id("edit-name")).sendKeys(read_user("userName"));
+        driver.findElement(By.id("edit-pass")).sendKeys(read_user("passWord"));
         driver.findElement(By.id("edit-submit")).click();
-//        endSession("Your current session.");
         waitElement(By.xpath("//a[text()='See all products']"));
         driver.findElement(By.xpath("//a[text()='See all products']")).click();
     }
@@ -96,18 +94,18 @@ public class commonSteps extends TestBase {
 
     @When("^I access into \"([^\"]*)\"$")
     public void iAccessInto(String text) throws Throwable {
-        waitElement(By.xpath("//a[text()='"+text+"']"));
-        driver.findElement(By.xpath("//a[text()='"+text+"']")).click();
+        waitElement(By.xpath("//a[text()='" + text + "']"));
+        driver.findElement(By.xpath("//a[text()='" + text + "']")).click();
     }
 
     @Then("^I choose version \"([^\"]*)\"$")
     public void iChooseVersion(String version) throws Throwable {
-        waitElement(By.xpath("//div[@class='apicApiCardVersion']//div[text()='"+version+"']"));
-        driver.findElement(By.xpath("//div[@class='apicApiCardVersion']//div[text()='"+version+"']")).click();
+        waitElement(By.xpath("//div[@class='apicApiCardVersion']//div[text()='" + version + "']"));
+        driver.findElement(By.xpath("//div[@class='apicApiCardVersion']//div[text()='" + version + "']")).click();
     }
 
     @And("^I click Generate on transactionId$")
-    public void iClickGenerateOnTransactionId() throws Exception{
+    public void iClickGenerateOnTransactionId() throws Exception {
         waitElement(By.xpath("//div[@class='parameterOther']//a[text()='Generate']"));
         clickToElementByJS("//div[@class='parameterOther']//a[text()='Generate']");
     }
