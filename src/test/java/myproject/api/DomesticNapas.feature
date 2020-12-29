@@ -2,7 +2,7 @@
 Feature: Napas
 
   @Napas-00
-  Scenario: Napas
+  Scenario: Inquire Napas
     Given I login with "minhson" and "Son112233!"
     When I access into "DomesticNapasFTProduct" on portal at 1 page
     And I choose version "1.0.0"
@@ -17,7 +17,7 @@ Feature: Napas
     And I logout with "minhson"
 
   @Napas-01
-  Scenario: Napas
+  Scenario: Napas by account number
     Given I login with "minhson" and "Son112233!"
     When I access into "DomesticNapasFTProduct" on portal at 1 page
     And I choose version "1.0.0"
@@ -28,11 +28,24 @@ Feature: Napas
     Then I click "Send" button
     And I verify "resultCode" "00" is displayed in response
     And I verify "resultMessage" "Success" is displayed in response
-    And I verify "transactionFee" "8250" is displayed in response
     And I logout with "minhson"
 
   @Napas-02
-  Scenario: Napas
+  Scenario: Napas by card number
+    Given I login with "minhson" and "Son112233!"
+    When I access into "DomesticNapasFTProduct" on portal at 1 page
+    And I choose version "1.0.0"
+    Then I access into "createDomesticNapasFT" api
+    And I click on "Try it" tab
+    And I input "f6ac5b8aa8e6d566f7e634d0fda4a356" Client Secret
+    And I transfer from "002704070001208" to "9704060129837294" with "10000" amount and "" cardCode from "createDomesticNapasFT" file
+    Then I click "Send" button
+    And I verify "resultCode" "00" is displayed in response
+    And I verify "resultMessage" "Success" is displayed in response
+    And I logout with "minhson"
+
+  @Napas-03
+  Scenario: Inquire Napas bank
     Given I login with "minhson" and "Son112233!"
     When I access into "DomesticNapasFTProduct" on portal at 1 page
     And I choose version "1.0.0"

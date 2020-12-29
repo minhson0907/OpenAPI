@@ -50,7 +50,7 @@ public class domesticSteps extends TestBase {
         String oldRequestId,oldFromAccount,oldToAccount,oldAmount,oldCardCode;
         oldRequestId = getValueInLine(fileName,18,21,2);
         oldFromAccount = getValueInLine(fileName,26,29,6);
-        oldToAccount = getValueInLine(fileName,24,27,7);
+        oldToAccount = getValueInLine(fileName,24,34,7);
         oldAmount = getValueInLine(fileName,23,26,8);
         oldCardCode = getValueInLine(fileName,17,23,10);
 
@@ -59,8 +59,8 @@ public class domesticSteps extends TestBase {
         //Replacing the old line with new line
         fileContents = fileContents.replaceAll(oldRequestId, newRequestId);
         fileContents = fileContents.replaceAll(oldFromAccount, fromAccount);
-        fileContents = fileContents.replaceAll(oldAmount, amount);
         fileContents = fileContents.replaceAll(oldToAccount, toAccount);
+        fileContents = fileContents.replaceAll(oldAmount, amount);
         fileContents = fileContents.replaceAll(oldCardCode,cardCode);
 
         waitElement(By.id("body"));
